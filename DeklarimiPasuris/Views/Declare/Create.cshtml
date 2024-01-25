@@ -1,0 +1,454 @@
+﻿@using DeklarimiPasuris.Controllers
+@model DeclarationModel
+
+<form asp-action="Create">
+    <div class="py-3 px-5">
+        <div class="p-2 rounded mb-5 text-center" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded" style="background-color: #D9D9D9">Pasuritë e paluajtshme</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Type">Lloji i pasurisë</label>
+                        <input class="form-control" asp-for="RealEstateModel!.Type" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Area">Sipërfaqja</label>
+                        <input class="form-control" type="number" asp-for="RealEstateModel!.Area" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Origine">Prejardhja e pasurisë</label>
+                        <input class="form-control" type="text" asp-for="RealEstateModel!.Origine" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Erned">Origjina e pasurisë</label>
+                        <input class="form-control" type="text" asp-for="RealEstateModel!.Erned" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Date">Viti</label>
+                        <input class="form-control" type="number" asp-for="RealEstateModel!.Date" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Price">Qmimi</label>
+                        <input class="form-control" type="number" asp-for="RealEstateModel!.Price" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="RealEstateModel!.Owned">Pronësia</label>
+                        <input class="form-control" type="text" asp-for="RealEstateModel!.Owned" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9"> Pasuritë e luajtshme mbi (3000.00) euro</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Type">Lloji i pasurisë</label>
+                        <input class="form-control" type="text" asp-for="MovableAssetsModel!.Type" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Area">Sipërfaqja</label>
+                        <input class="form-control" type="number" asp-for="MovableAssetsModel!.Area" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Origine">Prejardhja e pasurisë</label>
+                        <input class="form-control" type="text" asp-for="MovableAssetsModel!.Origine" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Unique">Pjesë të veqanta</label>
+                        <input class="form-control" type="text" asp-for="MovableAssetsModel!.Unique" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Date">Viti</label>
+                        <input class="form-control" asp-for="MovableAssetsModel!.Date" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Price">Qmimi</label>
+                        <input class="form-control" type="number" asp-for="MovableAssetsModel!.Price" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="MovableAssetsModel!.Owned">Pronësia</label>
+                        <input class="form-control" type="text" asp-for="MovableAssetsModel!.Owned" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9"> Zotrimi i aksioneve në shoqëri tregtare</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.Type">Lloji i shoqëris tregtare</label>
+                        <input class="form-control" type="text" asp-for="ActionsModel!.Type" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.Name">Emri i shoqërisë tregtare</label>
+                        <input class="form-control" type="text" asp-for="ActionsModel!.Name" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.Percent">Përqindja e aksioneve</label>
+                        <input class="form-control" type="number" asp-for="ActionsModel!.Percent" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.Value">Vlera në euro</label>
+                        <input class="form-control" type="number" asp-for="ActionsModel!.Value" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.DateRegistred">Data e regjistrimit</label>
+                        <input class="form-control" asp-for="ActionsModel!.DateRegistred" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.DateOwned">Data e përfitimit të aksioneve</label>
+                        <input class="form-control" asp-for="ActionsModel!.DateOwned" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="ActionsModel!.Actions">Aksionet</label>
+                        <input class="form-control" asp-for="ActionsModel!.Actions" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Posedimi i letrave me vlere</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BondModel!.Name">Letra me vlere</label>
+                        <input class="form-control" asp-for="BondModel!.Name" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BondModel!.ValueNow">Vlera e letrës</label>
+                        <input class="form-control" asp-for="BondModel!.ValueNow" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BondModel!.Origin">Burimi</label>
+                        <input class="form-control" asp-for="BondModel!.Origin" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BondModel!.Date">Data e pranimit</label>
+                        <input class="form-control" asp-for="BondModel!.Date" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="BondModel!.Bond">Letra</label>
+                        <input class="form-control" asp-for="BondModel!.Bond" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Posedimi i kriptovalutave</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.Name">Emri i kriptovalutes</label>
+                        <input class="form-control" asp-for="CryptoModel!.Name" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.ValueNow">Vlera e tashme</label>
+                        <input class="form-control" asp-for="CryptoModel!.ValueBought" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.ValueBought">Vlera e blerjes</label>
+                        <input class="form-control" asp-for="CryptoModel!.ValueBought" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.Quantity">Sasia</label>
+                        <input class="form-control" asp-for="CryptoModel!.Quantity" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.Origine">Prejardhja</label>
+                        <input class="form-control" asp-for="CryptoModel!.Origine" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.Date">Data e pranimit</label>
+                        <input class="form-control" asp-for="CryptoModel!.Date" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="CryptoModel!.Crypto">Letrat</label>
+                        <input class="form-control" asp-for="CryptoModel!.Crypto" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Para te gatshme ne llogari rrjedhese</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Type">Lloj te hyrave</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Type" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Institution">Emri i institutcionit</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Institution" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Country">Vendi</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Country" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Value">Vlera</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Value" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Origine">Prejardhja</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Origine" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.AccountType">Lloji i llogaris</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.AccountType" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="LiquidMoneyModel!.Owned">Pronsia</label>
+                        <input class="form-control" asp-for="LiquidMoneyModel!.Owned" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Te drejtat edhe detyrimet financiare ndaj personave juridik ose fizik</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.Kreditore">kreditore</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.Kreditore" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.Debitore">Debitore</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.Debitore" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.Reason">Qellimi i detyrimit financiar</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.Reason" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.StartDate">Data e fillimit</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.StartDate" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.EndDate">Data e mbarimit</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.EndDate" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.Duration">Kohezgjatja (ne muaj)</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.Debitore" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.StartedValue">Vlera fillestare</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.StartedValue" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.LeftValue">Vlera e mbetur</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.LeftValue" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="FinancialObligationModel!.TotalValue">Shuma totale e kredis</label>
+                        <input class="form-control" asp-for="FinancialObligationModel!.TotalValue" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label">Detyrimet</label>
+                        <input class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Donacionet edhe shpenzimet</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Type">Lloj i donacionit</label>
+                        <input class="form-control" asp-for="DonationModel!.Type" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Naming">Emertimi</label>
+                        <input class="form-control" asp-for="DonationModel!.Naming" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Value">Vlera ne euro</label>
+                        <input class="form-control" asp-for="DonationModel!.Value" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Date">Data</label>
+                        <input class="form-control" asp-for="DonationModel!.Date" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Reason">Qellimi</label>
+                        <input class="form-control" asp-for="DonationModel!.Reason" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="DonationModel!.Owned">Pronsia</label>
+                        <input class="form-control" asp-for="DonationModel!.Owned" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 rounded mb-5" style="background-color: #eee">
+            <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #D9D9D9">Te ardhurat vjetore personale dhe familjare</h4>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.Owned">Pronsia e</label>
+                        <input class="form-control" asp-for="IncomeModel!.Owned" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.IncomeType">Lloj i te hyrave</label>
+                        <input class="form-control" asp-for="IncomeModel!.IncomeType" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.Source">Burimi</label>
+                        <input class="form-control" asp-for="IncomeModel!.Source" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.Country">Vendi</label>
+                        <input class="form-control" asp-for="IncomeModel!.Country" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.Bank">Banka</label>
+                        <input class="form-control" asp-for="IncomeModel!.Bank" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="IncomeModel!.Amount">Shuma</label>
+                        <input class="form-control" asp-for="IncomeModel!.Amount" />
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label">Tekst nese nuk ka</label>
+                        <input class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary">Dergo aplikimin</button>
+        </div>
+
+    </div>
+</form>

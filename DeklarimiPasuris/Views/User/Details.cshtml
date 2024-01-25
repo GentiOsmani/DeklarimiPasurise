@@ -1,0 +1,72 @@
+﻿@using DeklarimiPasuris.Entities
+@model User
+
+<div>
+    <h4>Shiko ose perditso perdoruesin</h4>
+</div>
+<div class="card py-2 px-5">
+    <form asp-action="Edit" asp-controller="User" enctype="multipart/form-data">
+        <input hidden asp-for="Id" />
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="FirstName">Emri</label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="MiddleName">Emri i Mesëm</label>
+                    <input asp-for="MiddleName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="LastName">Mbiemri</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="IdentityNumber">Numri Personal</label>
+                    <input asp-for="IdentityNumber" class="form-control" />
+                    <span asp-validation-for="IdentityNumber" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Municipality">Qyteti</label>
+                    <select asp-for="Municipality" asp-items="ViewBag.Munis" class="form-control">
+                        <option disabled selected>Zgjedh qytetin</option>
+                    </select>
+                    <span asp-validation-for="Municipality" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Image">Fotografia e Profilit</label>
+                    <input asp-for="Image" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Email">Adresa Elektronike</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary">Ndrysho të Dhënat</button>
+        </div>
+    </form>
+</div>

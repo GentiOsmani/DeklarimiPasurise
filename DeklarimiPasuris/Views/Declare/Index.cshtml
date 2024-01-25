@@ -1,0 +1,40 @@
+﻿@using DeklarimiPasuris.Entities
+@model List<Applications>
+@{
+    int id = 1;
+}
+<div class="card p-4">
+    <h4 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Lista e aplikimeve</h4>
+</div>
+<div class="card p-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Data e aplikimi</th>
+                <th>Detajet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (Model is null || Model.Count() == 0)
+                {
+                    <tr>
+                        <td class="text-center">Nuk ka raportime</td>
+                    </tr>
+                }
+                <tr>
+                    <td>@id</td>
+                    <td>@item.User?.FirstName</td>
+                    <td>@item.User?.LastName</td>
+                    <td>@item.Created</td>
+                    <td><a class="btn btn-info" asp-action="Details" asp-controller="Declare" asp-route-userId="@item.UserId" asp-route-date="@item.Date.ToString()">Detajet</a></td>
+                </tr>
+                id++;
+            }
+        </tbody>
+    </table>
+</div>

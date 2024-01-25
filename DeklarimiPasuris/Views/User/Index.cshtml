@@ -1,0 +1,41 @@
+﻿@using DeklarimiPasuris.Entities
+@model List<User>
+
+@{
+    int id = 1;
+}
+<div class="card p-4">
+    <h4 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Lista e Përdoruesve</h4>
+</div>
+<div class="card p-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Adresa Elektronike</th>
+                <th>Detajet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (Model is null || Model.Count() == 0)
+                {
+                    <tr>
+                        <td class="text-center">Nuk ka perdorues</td>
+                    </tr>
+                }
+                <tr>
+                    <td>@id</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td><a class="btn btn-info" asp-action="Details" asp-controller="User" asp-route-userId="@item.Id">Detajet</a></td>
+                </tr>
+                id++;
+            }
+        </tbody>
+    </table>
+</div>

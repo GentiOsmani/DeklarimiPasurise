@@ -1,0 +1,285 @@
+﻿@model DeclarationModel
+
+<div class="card p-4">
+    <h3 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Deklarimi i pasuris @ViewBag.User</h3>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasurite e paluajtshme</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pronsia</th>
+                <th>Lloji</th>
+                <th>Burimi</th>
+                <th>Vendi</th>
+                <th>Banka</th>
+                <th>Shuma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.IncomeModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.IncomeModel?.Owned</td>
+                <td>@Model.IncomeModel?.IncomeType</td>
+                <td>@Model.IncomeModel?.Source</td>
+                <td>@Model.IncomeModel?.Country</td>
+                <td>@Model.IncomeModel?.Bank</td>
+                <td>@Model.IncomeModel?.Amount</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasurite e luajtshme mbi (3000.00) euro</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pronsia</th>
+                <th>Lloji</th>
+                <th>Siperfaqja</th>
+                <th>Vlera</th>
+                <th>Perfitimi</th>
+                <th>Data </th>
+                <th>Prejardhja</th>
+                <th>E vEqant</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.MovableAssetsModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.MovableAssetsModel?.Owned</td>
+                <td>@Model.MovableAssetsModel?.Type</td>
+                <td>@Model.MovableAssetsModel?.Area</td>
+                <td>@Model.MovableAssetsModel?.Price</td>
+                <td>@Model.MovableAssetsModel?.Origine</td>
+                <td>@Model.MovableAssetsModel?.Date</td>
+                <td>@Model.MovableAssetsModel?.Origine</td>
+                <td>@Model.MovableAssetsModel?.Unique</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Zotrimi i agksioneve ne shoqeri tregtare</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emertimi</th>
+                <th>Lloji</th>
+                <th>Aksionet</th>
+                <th>Vlera</th>
+                <th>Perqindja</th>
+                <th>Data e regjistrimit </th>
+                <th>Data e blerjes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ActionsModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.ActionsModel?.Name</td>
+                <td>@Model.ActionsModel?.Type</td>
+                <td>@Model.ActionsModel?.Actions</td>
+                <td>@Model.ActionsModel?.Value</td>
+                <td>@Model.ActionsModel?.Percent</td>
+                <td>@Model.ActionsModel?.DateRegistred</td>
+                <td>@Model.ActionsModel?.DateOwned</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i letrave me vlere</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emertimi</th>
+                <th>Vlera</th>
+                <th>Prejardhja</th>
+                <th>Data</th>
+                <th>Bonds</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BondModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.BondModel?.Name</td>
+                <td>@Model.BondModel?.ValueNow</td>
+                <td>@Model.BondModel?.Origin</td>
+                <td>@Model.BondModel?.Date</td>
+                <td>@Model.BondModel?.Bond</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i kriptovalutave</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Emertimi</th>
+                <th>Vlera tani</th>
+                <th>Vlera e blere</th>
+                <th>Sasia</th>
+                <th>Data</th>
+                <th>Crypto </th>
+                <th>Prejardhja</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.CryptoModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.CryptoModel?.Name</td>
+                <td>@Model.CryptoModel?.ValueNow</td>
+                <td>@Model.CryptoModel?.ValueBought</td>
+                <td>@Model.CryptoModel?.Quantity</td>
+                <td>@Model.CryptoModel?.Date</td>
+                <td>@Model.CryptoModel?.Crypto</td>
+                <td>@Model.CryptoModel?.Origine</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Para te gatshme ne llogari rrjedhese</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lloji</th>
+                <th>Institutcioni</th>
+                <th>Vendi</th>
+                <th>Prejardhja</th>
+                <th>Lloji i llogaris</th>
+                <th>Pronsia</th>
+                <th>Vlera</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.LiquidMoneyModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.LiquidMoneyModel?.Type</td>
+                <td>@Model.LiquidMoneyModel?.Institution</td>
+                <td>@Model.LiquidMoneyModel?.Country</td>
+                <td>@Model.LiquidMoneyModel?.Origine</td>
+                <td>@Model.LiquidMoneyModel?.AccountType</td>
+                <td>@Model.LiquidMoneyModel?.Owned</td>
+                <td>@Model.LiquidMoneyModel?.Value</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Te drejtat edhe detyrimet financiare ndaj personave juridik ose fizik</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Kredit</th>
+                <th>Debit</th>
+                <th>Arsyja</th>
+                <th>Data fillimit</th>
+                <th>Data mbarimit</th>
+                <th>Kohezgjatja (ne muaj)</th>
+                <th>Vlera ne fillim</th>
+                <th>Vlera ne mbetur</th>
+                <th>Vlera ne totale</th>
+                <th>Pronsia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.FinancialObligationModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.FinancialObligationModel?.Kreditore</td>
+                <td>@Model.FinancialObligationModel?.Debitore</td>
+                <td>@Model.FinancialObligationModel?.Reason</td>
+                <td>@Model.FinancialObligationModel?.StartDate</td>
+                <td>@Model.FinancialObligationModel?.EndDate</td>
+                <td>@Model.FinancialObligationModel?.Duration</td>
+                <td>@Model.FinancialObligationModel?.StartedValue</td>
+                <td>@Model.FinancialObligationModel?.LeftValue</td>
+                <td>@Model.FinancialObligationModel?.TotalValue</td>
+                <td>@Model.FinancialObligationModel?.Owned</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card p-2">
+    <dv>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Donacionet edhe shpenzimet</h5>
+    </dv>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lloji</th>
+                <th>Vlera</th>
+                <th>Emertimi</th>
+                <th>Data</th>
+                <th>Qellimi</th>
+                <th>Pronsia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.DonationModel is null)
+            {
+                <tr>
+                    <td>Nuk ka te dhena</td>
+                </tr>
+            }
+            <tr>
+                <td>@Model.DonationModel?.Type</td>
+                <td>@Model.DonationModel?.Value</td>
+                <td>@Model.DonationModel?.Naming</td>
+                <td>@Model.DonationModel?.Date</td>
+                <td>@Model.DonationModel?.Reason</td>
+                <td>@Model.DonationModel?.Owned</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
