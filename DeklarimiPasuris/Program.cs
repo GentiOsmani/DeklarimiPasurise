@@ -1,19 +1,23 @@
+using DeklarimiPasuris;
 using DeklarimiPasuris.Config;
 using DeklarimiPasuris.Data;
 using DeklarimiPasuris.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+    
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddIdentity<User, IdentityRole>( opt =>
+builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
     opt.Password.RequiredUniqueChars = 0;
@@ -38,6 +42,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Moved from the original position to ensure it comes before authorization
 app.UseAuthorization();
 
 app.MapControllerRoute(
