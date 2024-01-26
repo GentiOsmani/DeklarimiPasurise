@@ -12,14 +12,28 @@
           rel="stylesheet">
     <link href="toastr.css" rel="stylesheet" />
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        #accordionSidebar .nav-item:last-child {
+            margin-top: 500px;
+        }
+
+        #content-wrapper {
+            margin-left: 250px;
+        }
+
+        #accordionSidebar {
+            position: fixed;
+            height: 100%;
+        }
+    </style>
 </head>
 <body id="page-top">
+    
 
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-hidden" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Index" asp-controller="Home">
                 <div class="sidebar-brand-icon">
@@ -63,6 +77,11 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item active">
+                <a class="nav-link" asp-action="Index" asp-controller="Declare">
+                    <span class="ml-3">Shkyqu</span>
+                </a>
+            </li>
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
