@@ -38,6 +38,14 @@ public class AuthController(UserManager<User> userManager, SignInManager<User> s
         return RedirectToAction("Index", "Home");
     }
 
+
+    public async Task<IActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        HttpContext.Session.Clear();
+        return Content("<script>window.location = '/Auth/Login';</script>", "text/html");
+    }
+
     #endregion
 
     #region Register

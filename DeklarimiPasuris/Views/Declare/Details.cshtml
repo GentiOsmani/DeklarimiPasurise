@@ -1,16 +1,16 @@
 ﻿@model DeclarationModel
 
 <div class="card p-4">
-    <h3 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Deklarimi i pasuris @ViewBag.User</h3>
+    <h3 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Deklarimi i Pasurisë së @ViewBag.User</h3>
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasurite e paluajtshme</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasuritë e Paluajtshme</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
-                <th>Pronsia</th>
+                <th>Pronësia</th>
                 <th>Lloji</th>
                 <th>Burimi</th>
                 <th>Vendi</th>
@@ -22,7 +22,7 @@
             @if (Model.IncomeModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -38,26 +38,26 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasurite e luajtshme mbi (3000.00) euro</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasuritë e luajtshme mbi (3000.00) euro</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
-                <th>Pronsia</th>
+                <th>Pronësia</th>
                 <th>Lloji</th>
-                <th>Siperfaqja</th>
+                <th>Sipërfaqja</th>
                 <th>Vlera</th>
-                <th>Perfitimi</th>
+                <th>Përfitimi</th>
                 <th>Data </th>
                 <th>Prejardhja</th>
-                <th>E vEqant</th>
+                <th>Të Veqanta</th>
             </tr>
         </thead>
         <tbody>
             @if (Model.MovableAssetsModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -75,25 +75,25 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Zotrimi i agksioneve ne shoqeri tregtare</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Zotrimi i aksioneve në shoqëri tregtare</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
-                <th>Emertimi</th>
+                <th>Emërtimi</th>
                 <th>Lloji</th>
                 <th>Aksionet</th>
                 <th>Vlera</th>
-                <th>Perqindja</th>
-                <th>Data e regjistrimit </th>
-                <th>Data e blerjes</th>
+                <th>Përqindja</th>
+                <th>Data e Regjistrimit </th>
+                <th>Data e Blerjes</th>
             </tr>
         </thead>
         <tbody>
             @if (Model.ActionsModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -110,12 +110,12 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i letrave me vlere</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i letrave me vlerë</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
-                <th>Emertimi</th>
+                <th>Emërtimi</th>
                 <th>Vlera</th>
                 <th>Prejardhja</th>
                 <th>Data</th>
@@ -126,7 +126,7 @@
             @if (Model.BondModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -146,9 +146,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Emertimi</th>
+                <th>Emërtimi</th>
                 <th>Vlera tani</th>
-                <th>Vlera e blere</th>
+                <th>Vlera e blerë</th>
                 <th>Sasia</th>
                 <th>Data</th>
                 <th>Crypto </th>
@@ -159,7 +159,7 @@
             @if (Model.CryptoModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -176,7 +176,7 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Para te gatshme ne llogari rrjedhese</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Para të gatshme në llogari rrjedhëse</h5>
     </dv>
     <table class="table">
         <thead>
@@ -185,8 +185,8 @@
                 <th>Institutcioni</th>
                 <th>Vendi</th>
                 <th>Prejardhja</th>
-                <th>Lloji i llogaris</th>
-                <th>Pronsia</th>
+                <th>Lloji i Llogarisë</th>
+                <th>Pronësia</th>
                 <th>Vlera</th>
             </tr>
         </thead>
@@ -194,7 +194,7 @@
             @if (Model.LiquidMoneyModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -211,28 +211,28 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Te drejtat edhe detyrimet financiare ndaj personave juridik ose fizik</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Të drejtat dhe detyrimet financiare ndaj personave juridik ose fizik</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
                 <th>Kredit</th>
                 <th>Debit</th>
-                <th>Arsyja</th>
-                <th>Data fillimit</th>
-                <th>Data mbarimit</th>
-                <th>Kohezgjatja (ne muaj)</th>
-                <th>Vlera ne fillim</th>
-                <th>Vlera ne mbetur</th>
-                <th>Vlera ne totale</th>
-                <th>Pronsia</th>
+                <th>Arsyeja</th>
+                <th>Data e Fillimit</th>
+                <th>Data e Mbarimit</th>
+                <th>Kohëzgjatja (në muaj)</th>
+                <th>Vlera në fillim</th>
+                <th>Vlera në mbetur</th>
+                <th>Vlera në totale</th>
+                <th>Pronësia</th>
             </tr>
         </thead>
         <tbody>
             @if (Model.FinancialObligationModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>
@@ -252,24 +252,24 @@
 </div>
 <div class="card p-2">
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Donacionet edhe shpenzimet</h5>
+        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Donacionet dhe shpenzimet</h5>
     </dv>
     <table class="table">
         <thead>
             <tr>
                 <th>Lloji</th>
                 <th>Vlera</th>
-                <th>Emertimi</th>
+                <th>Emërtimi</th>
                 <th>Data</th>
-                <th>Qellimi</th>
-                <th>Pronsia</th>
+                <th>Qëllimi</th>
+                <th>Pronësia</th>
             </tr>
         </thead>
         <tbody>
             @if (Model.DonationModel is null)
             {
                 <tr>
-                    <td>Nuk ka te dhena</td>
+                    <td>Nuk ka të dhena</td>
                 </tr>
             }
             <tr>

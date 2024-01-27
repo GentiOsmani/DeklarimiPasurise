@@ -24,7 +24,7 @@ public class AdminInit(AppDbContext context, IConfiguration configuration)
 
         var admin = new User
         {
-            FirstName = "Deklarimi",
+            FirstName = "Admin",
             LastName = "Admin",
             Email = "deklarimi@admin.com",
             NormalizedEmail = "DEKLARIMI@ADMIN.COM",

@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-    
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,6 +25,9 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
 })
     .AddEntityFrameworkStores<AppDbContext>();
 
+// Add session services
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,6 +43,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Use session middleware
+app.UseSession();
 
 app.UseAuthentication(); // Moved from the original position to ensure it comes before authorization
 app.UseAuthorization();

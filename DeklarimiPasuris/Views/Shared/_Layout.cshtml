@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
     <title>@ViewData["Title"] - DeklarimiPasuris</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -78,7 +82,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item active">
-                <a class="nav-link" asp-action="Index" asp-controller="Declare">
+                <a class="nav-link" asp-action="Logout" asp-controller="Auth" onclick="clearHistory()">
                     <span class="ml-3">Shkyqu</span>
                 </a>
             </li>
@@ -146,5 +150,13 @@
     <script src="~/js/demo/chart-pie-demo.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        // Clear browser history after signing out
+        function clearHistory() {
+            if (window.history && window.history.pushState) {
+                window.history.pushState('', '', '/Auth/Login');
+            }
+        }
+    </script>
 </body>
 </html>
