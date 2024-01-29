@@ -15,7 +15,6 @@ public class AuthController(UserManager<User> userManager, SignInManager<User> s
     private readonly AppDbContext _context = context;
     private readonly IWebHostEnvironment _environment = environment;
 
-    #region Login
     [HttpGet]
     public IActionResult Login() => View();
 
@@ -45,10 +44,6 @@ public class AuthController(UserManager<User> userManager, SignInManager<User> s
         HttpContext.Session.Clear();
         return Content("<script>window.location = '/Auth/Login';</script>", "text/html");
     }
-
-    #endregion
-
-    #region Register
 
     [HttpGet]
     public async Task<IActionResult> Register()
@@ -99,8 +94,6 @@ public class AuthController(UserManager<User> userManager, SignInManager<User> s
 
     }
 
-    #endregion
-
     private string AddImage(IFormFile img)
     {
         if (img is null)
@@ -118,11 +111,9 @@ public class AuthController(UserManager<User> userManager, SignInManager<User> s
         // the path is where the file will be stored
         string path = Path.Combine(_environment.WebRootPath, "img", fileName);
 
-        // Copy the file in the dir
         using (var fileStream = new FileStream(path, FileMode.Create))
             img.CopyTo(fileStream);
 
-        // return true as the proccess is finished successfully 
         return fileName;
     }
 }
