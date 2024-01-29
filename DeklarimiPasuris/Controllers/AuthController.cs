@@ -59,7 +59,8 @@ namespace DeklarimiPasuris.Controllers
         {
             await _signInManager.SignOutAsync();
             HttpContext.Session.Clear();
-            return Content("<script>window.location = '/Auth/Login';</script>", "text/html");
+
+            return RedirectToAction("Login", "Auth");
         }
 
         [HttpGet]

@@ -31,9 +31,7 @@
 
     <div id="wrapper">
         if(user.)
-        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-hidden" id="accordionSidebar">
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Index" asp-controller="Home">
                 <div class="sidebar-brand-icon">
                     <img src="~/img/APKS.png" class="w-75 ml-4" />
@@ -43,7 +41,6 @@
 
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" asp-action="Index" asp-controller="Home">
                     <span class="ml-3">Dashboard</span>
@@ -75,41 +72,33 @@
                 </a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             
             <li class="nav-item mt-auto">
-                <a class="nav-link" asp-action="Logout" asp-controller="Auth" onclick="clearHistory()">
+                <a class="nav-link" href="javascript:void(0);" onclick="logoutAndClearHistory()">
                     <span class="ml-3">Shkyqu</span>
                 </a>
             </li>
             
+            
         </ul>
-        <!-- End of Sidebar -->
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
             <div id="content">
 
-                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                  aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
@@ -138,19 +127,23 @@
     <script src="toastr.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
     <script src="~/js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
     <script src="~/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
     <script src="~/js/demo/chart-area-demo.js"></script>
     <script src="~/js/demo/chart-pie-demo.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
-        // Clear browser history after signing out
-        function clearHistory() {
+        function logoutAndClearHistory() {
+            var form = document.createElement('form');
+            form.action = '/Auth/Logout'; 
+            form.method = 'post'; 
+
+            document.body.appendChild(form);
+
+            form.submit();
+
             if (window.history && window.history.pushState) {
                 window.history.pushState('', '', '/Auth/Login');
             }
