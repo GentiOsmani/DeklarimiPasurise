@@ -9,10 +9,12 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
@@ -25,6 +27,10 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
 
 // Add session services
 builder.Services.AddSession();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 

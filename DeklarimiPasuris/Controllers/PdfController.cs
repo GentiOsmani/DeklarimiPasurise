@@ -1,14 +1,36 @@
-﻿@model DeclarationModel
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+using DinkToPdf;
+using DinkToPdf.Contracts;
+using DeklarimiPasuris.Models;
 
-<div class="card p-4">
-    <h3 class="text-primary fw-bold p-3 rounded" style="background-color: #d8ebff">Deklarimi i Pasurisë së @ViewBag.User</h3>
+public class PdfController : Controller
+{
+    private readonly ViewRenderer _viewRenderer;
+    private readonly IConverter _pdfConverter;
+
+    public PdfController(ViewRenderer viewRenderer, IConverter pdfConverter)
+    {
+        _viewRenderer = viewRenderer;
+        _pdfConverter = pdfConverter;
+    }
+
+    public async Task<IActionResult> GeneratePdf()
+    {
+        var model = new DeclarationModel();
+        var viewContent = @"
+            @model DeclarationModel
+
+<div class='card p-4'>
+    <h3 class='text-primary fw-bold p-3 rounded' style='background-color: #d8ebff'>Deklarimi i Pasurisë së @ViewBag.User</h3>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasuritë e Paluajtshme</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Pasuritë e Paluajtshme</h5>
     </dv>
-    <table class="table">
-        <thead>
+    <table class='table'>
+        < thead>
             <tr>
                 <th>Pronësia</th>
                 <th>Lloji</th>
@@ -36,11 +58,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Pasuritë e luajtshme mbi (3000.00) euro</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Pasuritë e luajtshme mbi (3000.00) euro</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Pronësia</th>
@@ -73,11 +95,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2' >
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Zotrimi i aksioneve në shoqëri tregtare</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Zotrimi i aksioneve në shoqëri tregtare</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Emërtimi</th>
@@ -108,11 +130,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i letrave me vlerë</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3' > Posedimi i letrave me vlerë</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Emërtimi</th>
@@ -139,11 +161,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Posedimi i kriptovalutave</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Posedimi i kriptovalutave</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Emërtimi</th>
@@ -174,11 +196,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Para të gatshme në llogari rrjedhëse</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Para të gatshme në llogari rrjedhëse</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Lloji</th>
@@ -209,11 +231,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Të drejtat dhe detyrimet financiare ndaj personave juridik ose fizik</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Të drejtat dhe detyrimet financiare ndaj personave juridik ose fizik</h5>
     </dv>
-    <table class="table">
+    <table class='table' >
         <thead>
             <tr>
                 <th>Kredit</th>
@@ -250,11 +272,11 @@
         </tbody>
     </table>
 </div>
-<div class="card p-2">
+<div class='card p-2'>
     <dv>
-        <h5 class="text-center text-dark text-capitalize fw-bold mt-3">Donacionet dhe shpenzimet</h5>
+        <h5 class='text-center text-dark text-capitalize fw-bold mt-3'>Donacionet dhe shpenzimet</h5>
     </dv>
-    <table class="table">
+    <table class='table'>
         <thead>
             <tr>
                 <th>Lloji</th>
@@ -283,3 +305,24 @@
         </tbody>
     </table>
 </div>
+
+        "; // Replace this with your actual Razor view content
+        var result = await _viewRenderer.RenderViewToStringAsync(viewContent, model);
+
+        var pdf = _pdfConverter.Convert(new HtmlToPdfDocument()
+        {
+            GlobalSettings = {
+                ColorMode = ColorMode.Color,
+                PaperSize = PaperKind.A4,
+            },
+            Objects = {
+                new ObjectSettings() {
+                    HtmlContent = result,
+                }
+            }
+        });
+
+        // Return the generated PDF as a file for download
+        return File(pdf, "application/pdf", $"output_{DateTime.Now.ToString("yyyyMMddHHmmss")}.pdf");
+    }
+}

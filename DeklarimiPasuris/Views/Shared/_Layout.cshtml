@@ -30,7 +30,7 @@
     
 
     <div id="wrapper">
-
+        if(user.)
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion overflow-hidden" id="accordionSidebar">
             <!-- Sidebar - Brand -->
@@ -49,22 +49,23 @@
                     <span class="ml-3">Dashboard</span>
                 </a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" asp-action="Register" asp-controller="Auth">
-                    <span class="ml-3">Shto Përdorues</span>
-                </a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" asp-action="Index" asp-controller="User">
-                    <span class="ml-3">Përdoruesit</span>
-                </a>
-            </li>
-
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="Register" asp-controller="Auth">
+                        <span class="ml-3">Shto Përdorues</span>
+                    </a>
+                </li>
+            
+                <li class="nav-item active">
+                    <a class="nav-link" asp-action="Index" asp-controller="User">
+                        <span class="ml-3">Përdoruesit</span>
+                    </a>
+                </li>
+            }
             <li class="nav-item active">
                 <a class="nav-link" asp-action="Create" asp-controller="Declare">
-                    <span class="ml-3">Shiko Deklarimet</span>
+                    <span class="ml-3">Deklaro Pasurinë</span>
                 </a>
             </li>
 
@@ -76,11 +77,13 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-            <li class="nav-item active">
+            
+            <li class="nav-item mt-auto">
                 <a class="nav-link" asp-action="Logout" asp-controller="Auth" onclick="clearHistory()">
                     <span class="ml-3">Shkyqu</span>
                 </a>
             </li>
+            
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->

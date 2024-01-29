@@ -15,6 +15,7 @@
     <None Include="wwwroot\img\undraw_profile_2.svg" />
     <None Include="wwwroot\img\undraw_profile_3.svg" />
     <None Include="wwwroot\img\undraw_rocket.svg" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
   </ItemGroup>
 
   <ItemGroup>
