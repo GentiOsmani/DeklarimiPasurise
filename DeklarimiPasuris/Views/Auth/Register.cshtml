@@ -1,0 +1,83 @@
+﻿@model RegisterModel
+
+<div class="card py-2 px-5">
+    <form asp-action="Register" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="FirstName">Emri</label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="MiddleName">Emri mesem</label>
+                    <input asp-for="MiddleName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="LastName">Mbiemri</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="IdentityNumber">Numri personal</label>
+                    <input asp-for="IdentityNumber" class="form-control" />
+                    <span asp-validation-for="IdentityNumber" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Municipality">Qyteti</label>
+                    <select asp-for="Municipality" asp-items="ViewBag.Munis" class="form-control">
+                        <option disabled selected>Zgjedh qytetin</option>
+                    </select>
+                    <span asp-validation-for="Municipality" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Image">Fotografia e profilit</label>
+                    <input asp-for="Image" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Email">Addresa elektronike</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="Password">Fjalekalimi</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label class="form-label" asp-for="ConfirmPassword">Konfirmo fjalekalimin</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary">Regjistro</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,74 @@
+﻿@using DeklarimiPasuris.Entities
+@model List<Applications>
+@{
+    int id = 1;
+}
+<div class="card p-4">
+    <h4 class="text-primary fw-bold p-3 rounded text-center" style="background-color: #eee">Lista e Deklarimeve</h4>
+</div>
+<div class="card p-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Datat e Aplikimeve</th>
+                <th>Detajet</th>
+                <th>Shkarko Të Dhënat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (User.IsInRole("Admin"))
+            {
+                @foreach (var item in Model)
+                {
+                    if (Model is null || Model.Count() == 0)
+                    {
+                        <tr>
+                            <td class="text-center">Nuk ka raportime</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>@id</td>
+                        <td>@item.User?.FirstName</td>
+                        <td>@item.User?.LastName</td>
+                        <td>@item.Created</td>
+                        <td><a class="btn btn-info" asp-action="Details" asp-controller="Declare" asp-route-userId="@item.UserId" asp-route-date="@item.Date.ToString()">Detajet</a></td>
+                        <td><button class="btn btn-success" onclick="generatePdf()">Generate PDF</button></td>
+                    </tr>
+                    id++;
+                }
+            }
+            else
+            {
+                var currentUser = User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
+                if (Model is null || Model.Count() == 0)
+                {
+                    <tr>
+                        <td class="text-center" colspan="5">Nuk ka raportime</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in Model.Where(m => m.UserId == currentUser))
+                    {
+                        <tr>
+                            <td>@id</td>
+                            <td>@item.User?.FirstName</td>
+                            <td>@item.User?.LastName</td>
+                            <td>@item.Created</td>
+                            <td><a class="btn btn-info" asp-action="Details" asp-controller="Declare" asp-route-userId="@item.UserId" asp-route-date="@item.Date.ToString()">Detajet</a></td>
+                        </tr>
+                        id++;
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@* <script>
+    function generatePdf() {
+        window.location.href = '/Declare/Details';
+    }
+</script> *@
