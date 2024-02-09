@@ -38,19 +38,26 @@ namespace DeklarimiPasuris.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return Ok(model);
+                return View(model); // Return the view with validation errors
             }
-  
-            var user = await _userManager.Users.Where(x => x.IdentityNumber == model.IdentityNumber).FirstOrDefaultAsync();
+
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.IdentityNumber == model.IdentityNumber);
+
+            if (user == null)
+            {
+                ModelState.AddModelError("IdentityNumber", "ID-ja e Dhënë Nuk Ggziston.");
+                return View(model); // Return the view with error under the ID field
+            }
 
             var response = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
             if (!response.Succeeded)
             {
-                ModelState.AddModelError("Password", "Kredencialet e gabuara");
-                return View(model);
+                ModelState.AddModelError("Password", "Passwordi është gabim.");
+                return View(model); // Return the view with error under the password field
             }
-            return RedirectToAction("Index", "Home");
+
+            return RedirectToAction("Index", "Home"); // Redirect to the home page upon successful login
         }
 
         [HttpPost]
