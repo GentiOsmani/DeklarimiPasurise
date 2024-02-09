@@ -15,7 +15,6 @@
                 <th>Mbiemri</th>
                 <th>Datat e Aplikimeve</th>
                 <th>Detajet</th>
-                <th>Shkarko Të Dhënat</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +34,6 @@
                         <td>@item.User?.LastName</td>
                         <td>@item.Created</td>
                         <td><a class="btn btn-info" asp-action="Details" asp-controller="Declare" asp-route-userId="@item.UserId" asp-route-date="@item.Date.ToString()">Detajet</a></td>
-                        <td><button class="btn btn-success" onclick="generatePdf()">Generate PDF</button></td>
                     </tr>
                     id++;
                 }

@@ -108,7 +108,7 @@ namespace DeklarimiPasuris.Controllers
             {
                 var receiver = model.Email;
                 var subject = "Regjistrimi në APK";
-                var message = "Regjistrimi juaj ne APK eshte kryer me sukses.\n\nManuali per Regjistrim:\nNumrit tuaj Personal\nFjalëkalimi: " + model.Password;
+                var message = "Regjistrimi juaj ne APK eshte kryer me sukses.\n\nManuali per Regjistrim:\nQasuni përmes Numrit tuaj Personal\nDhe përmes Fjalëkalimit: '" + model.Password + "'";
 
                 await _emailSender.SendEmailAsync(receiver, subject, message);
 
